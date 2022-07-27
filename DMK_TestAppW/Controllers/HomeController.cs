@@ -24,20 +24,28 @@ namespace DMK_TestAppW.Controllers
 
         public IActionResult Index()
         {
+            // Выводим краткую статистику
             ViewBag.BooksCount = db.Books.Count();
             ViewBag.UsersCount = db.Users.Count();
             ViewBag.ReadsCount = db.Users.SelectMany(x => x.Books).Count();
             return View();
         }
 
+        /// <summary>
+        /// Получаем список книг из нужной коллекции дял отображения в представлении
+        /// </summary>
+        /// <param name="bookSet">Набор данных, из которых будет создаваться и обрабатываться список книг</param>
+        /// <returns></returns>
         private async Task GetListOfBooks(Book[] bookSet)
         {
             int booksCount = bookSet.Count();
             ViewBag.BookListCount = booksCount;
+
             Book[] bookArray = new Book[booksCount];
             Array.Copy(bookSet.ToArray(), bookArray, booksCount);
 
 
+            // Если пользователь авторизован - также генерируем список прочитанных книг
             if (null != HttpContext.Session.GetString("Username"))
             {
                 var readedBookList = db.Users.First(x => x.Username == HttpContext.Session.GetString("Username")).Books;
