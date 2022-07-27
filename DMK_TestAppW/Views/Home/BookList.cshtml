@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="text-primary">
+    <form method="post">
+        <div class="mainitem">
+            <div class="group">
+                <input type="text" name="TitleName" value="@(ViewBag.SearchField ?? "")">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Найти по названию:</label>
+            </div>
+            <input type="submit" value="Отправить" /> 
+        </div>
+    </form>
+    <table class="mainitem">
+        <tr>
+            <td align="center"><p><b>№</b></p></td>
+            <td align="center"><p><b>Название книги</b></p></td>
+            <td align="center"><p><b>Прочитали</b></p></td>
+            @if (null != ViewBag.SessionUsername)
+            {
+            <td align="center"><p><b>Управление</b></p></td>
+            }
+        </tr>
+    @{
+        int i = 0;
+        foreach (var book in ViewBag.BookList)
+        {
+            <tr>
+                <td align="center"><p>@(++i)</p></td>
+                <td><p>@(book.Title)</p></td>
+                <td><p align="center">@(book.Users.Count)</p></td>
+            @if (null != ViewBag.SessionUsername)
+            {
+                 @if (ViewData[$"IsReaded{book.BookId}"] != null)
+                 {
+                     <td align="center"><a href="~/Home/RemoveBook/?id=@(book.BookId)">Убрать из прочитанного</a></td>
+                 } 
+                 else
+                 {
+                     <td align="center"><a href="~/Home/AddBook/?id=@(book.BookId)&redirect=Books">Добавить в прочитанное</a></td>                    
+                 }
+             }
+            </tr>
+        }
+    }
+    </table>
+</div>
+

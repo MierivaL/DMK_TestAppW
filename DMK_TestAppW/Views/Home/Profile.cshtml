@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Список книг";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@(ViewBag.SessionUsername)</h1>
+    <p>Список книг пользователя:</p>
+</div>
+
+@await Html.PartialAsync("~/Views/Home/BookList.cshtml")

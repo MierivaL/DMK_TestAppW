@@ -1,0 +1,392 @@
+/*$lightblue: #D7F7FE;
+$darkblue: #1A577F;
+$medblue: #1F729C;
+$salmon: #FF6067;
+$hellayellow: #F7EE1A;*/
+
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background: #D7F7FE;
+    font-family: "AGForeignerLightC", sans-serif;
+    color: #222;
+}
+
+* {
+    transition: all .65s ease !important;
+    box-sizing: border-box;
+}
+
+button, input[type=button], input[type=submit], input[type=reset] {
+    background-color: #F7EE1A; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+    button:hover, input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover,
+    button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus {
+        color: white;
+        background-color: #FF6067;
+    }
+
+.container {
+    max-width: 75em;
+    margin: 0 auto;
+}
+
+table {
+    min-width: 100%;
+}
+
+.header {
+    background: #FF6067;
+    color: white;
+    padding: 0.625em;
+}
+
+    .header .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .header .site-title, .header .site-tagline {
+        font-weight: 400;
+    }
+
+@media (max-width: 700px) {
+    .header .site-title, .header .site-tagline {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header .site-title {
+        margin: 0;
+    }
+}
+
+.a {
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+}
+
+.site-title, h1, h2, h3 {
+    font-family: "KimberleyCYR Black", sans-serif;
+    font-size: 2.625em;
+    color: #024654;
+}
+
+h3 {
+    font-size: 2em;
+    color: #f7686e;
+}
+
+.site-title {
+    color: white;
+}
+
+.site-tagline {
+    font-size: 1.125em;
+    font-style: italic;
+}
+.main-nav {
+    background: #F7EE1A;
+    color: white;
+}
+
+    .main-nav a {
+        color: #1A577F;
+        text-decoration: none;
+    }
+
+    .main-nav ul, .main-nav li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-nav ul {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+        .main-nav ul a {
+            padding: 0.9375em 2.1875em;
+            display: flex;
+            text-transform: uppercase;
+        }
+
+            .main-nav ul a:hover, .main-nav ul a:focus {
+                background: #fbf795;
+                color: #419cd8;
+            }
+
+        .main-nav ul .mobile-button a {
+            position: absolute;
+            left: -99999em;
+        }
+
+@media (max-width: 700px) {
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+        .main-nav ul a {
+            position: absolute;
+            left: -99999em;
+        }
+
+        .main-nav ul.open li {
+            width: 100%;
+        }
+
+            .main-nav ul.open li.mobile-button a {
+                background: #fbf78d;
+                color: #0e3447;
+            }
+
+        .main-nav ul.open a {
+            position: static;
+        }
+
+        .main-nav ul .mobile-button a {
+            position: static;
+        }
+
+    .main-nav a {
+        width: 100%;
+    }
+}
+
+.full-bleed {
+    background-size: cover;
+    min-height: 300px;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 700px) {
+    .full-bleed {
+        min-height: 175px;
+    }
+}
+
+.cool-photo {
+    background-image: url(http://lorempixel.com/1300/400/abstract);
+}
+
+.cool-photo2 {
+    background-image: url(http://lorempixel.com/1300/400/food);
+}
+
+.post {
+    padding: 1.875em;
+}
+
+.list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.mainitem {
+    padding: 1.5625em;
+    min-width: 100%;
+    max-width: 100%;
+    background: #b1dbf0;
+    color: #1A577F;
+    border-bottom: 5px solid #F7EE1A;
+    margin-bottom: 2.1875em;
+    position: relative;
+    overflow: hidden;
+}
+
+    .mainitem a {
+        display: block;
+        /*height: 100%;*/ /* Высота на весь слой */
+        color: #1A577F;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .mainitem:hover, .mainitem:focus {
+        background: #e8f4fa;
+        border-bottom-color: #FF6067;
+    }
+
+
+@media (max-width: 660px) {
+    .columns .item {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 770px) and (max-width: 660px) {
+    .columns..item {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.columns .social {
+    position: absolute;
+    bottom: -60px;
+    height: 0;
+    z-index: -1;
+    font-size: 1.75em;
+}
+
+/* form starting stylings ------------------------------- */
+.group {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+input[type=text], input[type=password], select {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+    input[type=text]:focus, input[type=password]:focus, select:focus {
+        outline: none;
+    }
+
+/* LABEL ======================================= */
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input[type=text]:focus ~ label, input[type=password]:focus ~ label, select:focus ~ label,
+input[type=text]:valid ~ label, input[type=password]:valid ~ label, select:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+    .bar:before, .bar:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: #5264AE;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+
+    .bar:before {
+        left: 50%;
+    }
+
+    .bar:after {
+        right: 50%;
+    }
+
+/* active state */
+input[type=text]:focus ~ .bar:before, input[type=password]:focus ~ .bar:before, select:focus ~ .bar:before,
+input[type=text]:focus ~ .bar:before, input[type=password]:focus ~ .bar:after, select:focus ~ .bar:after {
+    width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 33%;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+input[type=text]:focus ~ .highlight, input[type=password]:focus ~ .highlight, select:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
