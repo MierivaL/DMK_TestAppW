@@ -208,8 +208,8 @@ namespace DMK_TestAppW.Controllers
             if (null == user)
                 return await SetMessageAsync("Пользователя не существует.", "~/Home/");
 
-            ViewBag.ProfileId = id.ToString();
-            await GetListOfBooks((TitleName == String.Empty ? user.Books : user.Books.Where(x => x.Title.Contains(TitleName))).ToArray());
+            ViewBag.UserProfileName = user.Username.ToString();
+            await GetListOfBooks((String.Empty == TitleName ? user.Books : user.Books.Where(x => x.Title.Contains(TitleName))).ToArray());
             return View();
         }
 
