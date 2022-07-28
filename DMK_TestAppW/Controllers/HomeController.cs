@@ -136,7 +136,7 @@ namespace DMK_TestAppW.Controllers
         [HttpPost]
         public async Task<ActionResult> Login(User user)
         {
-            if ("" != user.Password)
+            if (String.Empty != user.Password)
                 user.Password = Models.User.CreateMD5(user.Password);
             List<User> FindUser = await Task.Run(() => db
                 .Users
@@ -171,12 +171,12 @@ namespace DMK_TestAppW.Controllers
         public async Task<ActionResult> Register(RegisteringUser registeringUser)
         {
             User user;
-            if ("" != registeringUser.Password && registeringUser.Password == registeringUser.Password2)
+            if (String.Empty != registeringUser.Password && registeringUser.Password == registeringUser.Password2)
             {
                 user = new User { Username = registeringUser.Username, Password = Models.User.CreateMD5(registeringUser.Password) };
                 var FindUser = await db.Users.FirstOrDefaultAsync(x => x.Username == user.Username);
 
-                if (FindUser == null)
+                if (null == FindUser)
                 {
                     await db.Users.AddAsync(user);
                     await db.SaveChangesAsync();
@@ -193,7 +193,7 @@ namespace DMK_TestAppW.Controllers
 
         public async Task<ActionResult> ShowProfile(int id, string TitleName)
         {
-            if (id == 0)
+            if (0 == id)
             {
                 if (null == HttpContext.Session.GetString("Id"))
                 {
